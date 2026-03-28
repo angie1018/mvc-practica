@@ -40,6 +40,9 @@ public class ControladorEstudiante {
     public void actualizarVista() {
         vista.mostrarDetallesEstudiante(estudiante);
     }
+    public void mostrarTodosLosEstudiantes() {
+        vista.mostrarTodosLosEstudiantes(estudiantes);
+    }
 
 
 }

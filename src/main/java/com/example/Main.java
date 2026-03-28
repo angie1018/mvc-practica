@@ -1,28 +1,39 @@
 package com.example;
+
 import com.example.controlador.ControladorEstudiante;
 import com.example.modelo.Estudiante;
 import com.example.vista.VistaEstudiante;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Práctica MVC - UNIAJC");
-        
-        System.out.println("Creando el modelo...");
-        Estudiante estudiante = new Estudiante("Juan Pérez", 20);
+        System.out.println("Practica MVC - UNIAJC");
 
-        System.out.println("Creando la vista...");
+        // System.out.println("Creando el modelo...");
+        Estudiante estudiante = new Estudiante("Juan Perez", 20);
+        
+        // System.out.println("Creando la vista...");
         VistaEstudiante vista = new VistaEstudiante();
 
-        System.out.println("Creando el controlador...");
+        // System.out.println("Creando el controlador...");
         ControladorEstudiante controlador = new ControladorEstudiante(estudiante, vista);
 
-        System.out.println("Actualizando la vista...");
+        // System.out.println("Actualizando la vista...");
+        controlador.actualizarVista();
+        
+        // System.out.println("Modificando el modelo...");
+        estudiante.setNombre("María López");
+        estudiante.setEdad(22);
+
+        // System.out.println("Actualizando la vista después de modificar el modelo...");
         controlador.actualizarVista();
 
-        System.out.println("Modificando el modelo...");
-        estudiante.setNombre("Juan Pérez Modificado");
-        estudiante.setEdad(21);
+        System.out.println("-----------------------");
+        System.out.println("Agregando más estudiantes y mostrando la lista completa...");
 
-        System.out.println("Actualizando la vista...");
-        controlador.actualizarVista();
+
+        controlador.agregarEstudiante(new Estudiante("Carlos Gómez", 19));
+        controlador.agregarEstudiante(new Estudiante("Ana Martínez", 21)); 
+        controlador.agregarEstudiante(new Estudiante("Luis Fernández", 20));
+        controlador.mostrarTodosLosEstudiantes();
     }
 }

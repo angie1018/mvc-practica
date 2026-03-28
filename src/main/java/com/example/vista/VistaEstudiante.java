@@ -1,5 +1,7 @@
 package com.example.vista;
 
+import java.util.List;
+
 import com.example.modelo.Estudiante;
 
 public class VistaEstudiante {
@@ -10,4 +12,12 @@ public class VistaEstudiante {
         System.out.println("Edad: " + estudiante.getEdad());
 
     }
+        public void mostrarTodosLosEstudiantes(List<Estudiante> estudiantes) {
+        System.out.println("Lista de Estudiantes:");
+        for (Estudiante estudiante : estudiantes) {
+            mostrarDetallesEstudiante(estudiante);
+            System.out.println("-------------------");
+        }
+    }
+
 }
